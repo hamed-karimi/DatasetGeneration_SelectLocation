@@ -7,7 +7,8 @@ import torch.nn as nn
 class MetaController:
 
     def __init__(self, trained_meta_controller_weights_path):
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        # self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device('cpu')
         self.model_num = len([m for m in os.listdir(trained_meta_controller_weights_path) if m.startswith('meta_controller')])
         self.policy_nets = nn.ModuleList() #hDQN().to(self.device)
         # self.target_nets = nn.ModuleList() #hDQN().to(self.device)
